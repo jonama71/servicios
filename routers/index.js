@@ -1,9 +1,8 @@
-const {Router} = require("express")
+const {Router} = require('express')
+const Turismo=require("../controllers/turismo.controller")
+
 const router= Router()
-
-const{getTurismo,getTurismoName}=require("../controllers/turismo.controller")
-router.get("/servicios",getTurismo)
-router.get("/",getTurismo)
-
+router.get("/servicios",Turismo.getTurismo)
+router.get("/",Turismo.getTurismo)
 
 module.exports=router

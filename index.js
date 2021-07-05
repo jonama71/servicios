@@ -1,7 +1,5 @@
 const express = require("express")
 const app = express()
-const bodyParser =require("body-parser")
-
 
 //Puerto
 
@@ -14,17 +12,11 @@ app.use(express.urlencoded({extended: true}))
 // CORS
 
 app.use((req, res, next) => {
-
     res.header('Access-Control-Allow-Origin', '*');
-
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-
     next();
-
 });
 
 //routes voy a tener varias rutas para interactuar con mi api
@@ -32,6 +24,5 @@ app.use(require("./routers/index"))
 
 
 //Execution 
-app.get('/',(req,res)=> [res.send('Welcome to Puntos de antención de Turismo API ')])
 app.listen(PORT)
 console.log("Server running in http://localhost:"+PORT)
